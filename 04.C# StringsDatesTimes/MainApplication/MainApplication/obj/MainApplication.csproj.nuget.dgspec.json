@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "E:\\Anul 4\\Work-internship\\assignments_repo\\04.C# StringsDatesTimes\\MainApplication\\MainApplication\\MainApplication.csproj": {}
+    "E:\\Anul 4\\Work-internship\\assignments_repo\\assignments_repo\\04.C# StringsDatesTimes\\MainApplication\\MainApplication\\MainApplication.csproj": {}
   },
   "projects": {
-    "E:\\Anul 4\\Work-internship\\assignments_repo\\04.C# StringsDatesTimes\\MainApplication\\MainApplication\\MainApplication.csproj": {
+    "E:\\Anul 4\\Work-internship\\assignments_repo\\assignments_repo\\04.C# StringsDatesTimes\\MainApplication\\MainApplication\\MainApplication.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "E:\\Anul 4\\Work-internship\\assignments_repo\\04.C# StringsDatesTimes\\MainApplication\\MainApplication\\MainApplication.csproj",
+        "projectUniqueName": "E:\\Anul 4\\Work-internship\\assignments_repo\\assignments_repo\\04.C# StringsDatesTimes\\MainApplication\\MainApplication\\MainApplication.csproj",
         "projectName": "MainApplication",
-        "projectPath": "E:\\Anul 4\\Work-internship\\assignments_repo\\04.C# StringsDatesTimes\\MainApplication\\MainApplication\\MainApplication.csproj",
+        "projectPath": "E:\\Anul 4\\Work-internship\\assignments_repo\\assignments_repo\\04.C# StringsDatesTimes\\MainApplication\\MainApplication\\MainApplication.csproj",
         "packagesPath": "C:\\Users\\User\\.nuget\\packages\\",
-        "outputPath": "E:\\Anul 4\\Work-internship\\assignments_repo\\04.C# StringsDatesTimes\\MainApplication\\MainApplication\\obj\\",
+        "outputPath": "E:\\Anul 4\\Work-internship\\assignments_repo\\assignments_repo\\04.C# StringsDatesTimes\\MainApplication\\MainApplication\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
