@@ -12,7 +12,7 @@ namespace Assignment
         public bool Equals(Product? x, Product? y)
         {
             if(x == null && y == null)
-                throw new ArgumentNullException("Unul din produse fiind nule!");
+                throw new ArgumentNullException("Unul din produse fiind null!");
 
             return x.Id == y.Id;
         }

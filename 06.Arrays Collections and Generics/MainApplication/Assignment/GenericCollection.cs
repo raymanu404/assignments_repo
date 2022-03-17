@@ -47,10 +47,15 @@ namespace Assignment
             if(index1 >= maxsize || index2 >= maxsize)
                 throw new ArgumentOutOfRangeException("Index out of bounds");
 
-            T aux;
-            aux = this.items[index1];
-            this.items[index1] = this.items[index2];
-            this.items[index2] = aux;
+            //v1
+            //T aux;
+            //aux = this.items[index1];
+            //this.items[index1] = this.items[index2];
+            //this.items[index2] = aux;
+
+
+            //v2
+            (items[index1], items[index2]) = (items[index2], items[index1]);
             
         }
    
