@@ -1,0 +1,10 @@
+
+Metode LINQ
+https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/concepts/linq/standard-query-operators-overview'
+
+
+
+Declarative and Imperative programming, https://www.youtube.com/watch?v=E7Fbf7R3x6I
+Extension Methods in C#, https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/classes-and-structs/extension-methods
+IEnumerable și yield return, https://www.youtube.com/watch?v=4fju3xcm21M
+

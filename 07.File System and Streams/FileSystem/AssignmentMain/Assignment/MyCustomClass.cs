@@ -19,15 +19,17 @@ public class MyCustomClass : ICreateFolder
     {
         string current_folder = Path.Combine(Directory.GetCurrentDirectory(), currentPath);
         string newFilePath = Path.Combine(current_folder, nameFile);
-        FileStream fileStream = File.Create(newFilePath);
-       
+        FileStream fileStream = null;
+        //if (!File.Exists(newFilePath))
+        fileStream = File.Create(newFilePath);
         return fileStream;
     }
 
     public void CreateFolder(string nameFolder)
     {
         string newDirPath = Path.Combine(CurrentPath, nameFolder);
-        Directory.CreateDirectory(newDirPath);
+        if (!Directory.Exists(newDirPath)) 
+            Directory.CreateDirectory(newDirPath);
     }
 
 
