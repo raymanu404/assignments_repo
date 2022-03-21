@@ -16,7 +16,7 @@ namespace AssignmentMain.Assignment
 
         public override string ToString()
         {
-            return $"Name: {Name} :, with his/her power: {Power} and has Age: {Age} years old";
+            return $"Name:{Name} :, with his/her power: {Power} and has Age: {Age} years old";
         }
     }
 }

@@ -8,7 +8,7 @@ namespace AssignmentMain.Assignment.Abstractions
 {
     public interface ICreateFolder
     {
-        void CreateFolder(String nameFolder);
-        FileStream CreateFile(String currentPath, String nameFile);
+        void CreateFolder(string nameFolder);
+        FileStream CreateFile(string nameFile);
     }
 }
