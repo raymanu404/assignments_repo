@@ -3,6 +3,8 @@ Metode LINQ
 https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/concepts/linq/standard-query-operators-overview
 
 
+https://github.com/lutes1/Linq/blob/main/LinqLesson/LinqLesson.cs
+
 
 Declarative and Imperative programming, https://www.youtube.com/watch?v=E7Fbf7R3x6I
 Extension Methods in C#, https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/classes-and-structs/extension-methods

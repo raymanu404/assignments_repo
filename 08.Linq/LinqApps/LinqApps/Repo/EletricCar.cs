@@ -6,8 +6,8 @@ using System.Threading.Tasks;
 
 namespace Linq.Repo
 {
-    public class HomeStudent : Student
+    public class EletricCar : Car
     {
-        public string Address { get; set; }
+        public int Autonomy { get; set; }
     }
 }
