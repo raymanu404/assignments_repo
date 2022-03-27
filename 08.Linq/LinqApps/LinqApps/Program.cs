@@ -53,13 +53,16 @@ namespace Linq
             cars.Skip(6).PrintCollection(); // omite primele 6 resultate si afiseaza next
 
             //TakeWhile
-            cars.TakeWhile(x => x.Year == 2018).PrintCollection();
+            Console.WriteLine("TakeWhile:");
+            cars.TakeWhile(x => x.Year == 2012).PrintCollection();
 
             //SkipWhile
-            cars.SkipWhile(x => x.Year == 2018).PrintCollection();
+            Console.WriteLine("SkipWhile:");
+            cars.SkipWhile(x => x.Year == 2012).Take(2).PrintCollection();
 
             //Distinct
-            cars.Distinct().PrintCollection();
+            Console.WriteLine("Distinct:");
+            cars.Distinct(new CarsComparer()).PrintCollection();
 
             //Chunk
             var chunked = cars.Chunk(2);
@@ -151,7 +154,7 @@ namespace Linq
             // First, FirstOrDefault
             var firstCar = cars.First().ToString();
             Console.WriteLine(firstCar);
-            Func<Car, bool> predicate = (x) => x.CompanyId == 4;
+            Func<Car, bool> predicate = (x) => x.CompanyId == 2;
             var firstCarWithPredicate = cars.First(predicate).ToString();
             Console.WriteLine(firstCarWithPredicate);
             Console.WriteLine(cars.FirstOrDefault(defaultCar)); //la fel doar ca returneaza defaultul daca nu gaseste studenti
@@ -164,7 +167,7 @@ namespace Linq
             //Console.WriteLine(students.SingleOrDefault()); //returneaza exceptie daca avem mai mult de un element in lista
 
             // ElementAt, ElementAtOrDefault
-            Console.WriteLine(cars.ElementAt(7));
+            Console.WriteLine(cars.ElementAt(3));
         }
         private static void DataConversion()
         {
@@ -227,16 +230,20 @@ namespace Linq
         private static void SetOperations()
         {
             // Distinct, DistinctBy
-            //cars.Distinct(new CarsComparer()).PrintCollection();
+            Console.WriteLine("Distinct:");
+            cars.Distinct(new CarsComparer()).PrintCollection();
+            Console.WriteLine("DistinctBy:");
             cars.DistinctBy(x => x.Brand).PrintCollection();
 
             // Except, ExeceptBy
             List<Car> carsToExcept = new List<Car>() { 
-                new Car() {Brand = "Skoda"}, 
+                new Car() {Id=4, Brand = "Skoda", Model = "Superb", MaxSpeed = 240,  Year = 2014,Colour= "orange", CompanyId = 3, IsFullOption = false}, 
             };
-            //cars.Except(carsToExcept).PrintCollection();
+            Console.WriteLine("Except:");
+            cars.Except(carsToExcept).PrintCollection();
 
             static string carBrandSelector(Car car) => car.Brand;
+            Console.WriteLine("ExceptBy:");
             cars.ExceptBy(carsToExcept.Select(carBrandSelector), carBrandSelector).PrintCollection(); //facem keySelector-ul acelasi pentru ambele liste
 
             // Intersect, IntersectBy
@@ -245,17 +252,22 @@ namespace Linq
                 new Car() {Brand = "Audi", Model = "A7"},
                 new Car() {Brand = "Mustang", Model ="modelul S"},
             };
-
-            //cars.Intersect(carsToIntersect, new CarsComparer()).PrintCollection();
-            cars.IntersectBy(carsToIntersect.Select(carBrandSelector), carBrandSelector).PrintCollection();
+            Console.WriteLine("Intersect:");
+            cars.Intersect(carsToIntersect, new CarsComparer()).PrintCollection();
+            Console.WriteLine("IntersectBy:");
+            cars.IntersectBy(carsToIntersect.Select(car => car.Brand), car => car.Brand).PrintCollection();
 
             // Union, UnionBy (distinct union)
+
             var unionCars = cars.Union(carsToIntersect);
+            Console.WriteLine("Union:");
             unionCars.PrintCollection();
-            var unionByBrand = cars.UnionBy(carsToIntersect, carBrandSelector);
+            var unionByBrand = cars.UnionBy(carsToIntersect, car => car.Brand);
+            Console.WriteLine("UnionBy:");
             unionByBrand.PrintCollection();
 
             // Concat (non distinct)
+            Console.WriteLine("Concat:");
             cars.Concat(carsToIntersect).PrintCollection(); //aici concatenam tot indiferent de dublaje
         }
         private static void Joins()
@@ -305,13 +317,29 @@ namespace Linq
             var selectIDs = cars.Select(car => car.Id);
             var resultOfZip = selectIDs.Zip(cars, (id, car) => id + " - " + car.Brand);
             resultOfZip.PrintCollection();
+
+
+            //Cîte mașini a produs Audi în 2022 de culoare neagră ?
+
+            var query2 = cars.Count(x => x.Brand.Equals("Audi") && x.Colour.Equals("black") && x.Year == 2022); 
+            query2.PrintInConsole("Masini negre audi 2022: ");
+
+            var query3 = from car in cars
+                         join company in companies on car.CompanyId equals company.Id
+                         where company.Country == "Germany"
+                         select new { car.Brand };
+
+            query3.PrintCollection();
+
+
+
         }
 
         private static void AddStudents()
         {
             cars = new List<Car>()
             {
-                new Car(){Id=1, Brand = "Audi", Model = "A7", MaxSpeed = 300, Year = 2012,Colour= "yellow", CompanyId = 1, IsFullOption= true},
+                new Car(){Id=1, Brand = "Audi", Model = "A7", MaxSpeed = 300, Year = 2022,Colour= "black", CompanyId = 1, IsFullOption= true},
                 new Car(){Id=2, Brand = "Volswagen", Model = "Passat CC", MaxSpeed = 200, Year = 2017,Colour= "black", CompanyId = 2, IsFullOption = false},
                 new Car(){Id=3, Brand = "Volswagen", Model = "Arteon", MaxSpeed = 310,  Year = 2018,Colour= "purple", CompanyId = 3, IsFullOption = false},
                 new Car(){Id=4, Brand = "Skoda", Model = "Superb", MaxSpeed = 240,  Year = 2014,Colour= "orange", CompanyId = 3, IsFullOption = false},
@@ -334,7 +362,7 @@ namespace Linq
              new Company { Name = "Audi", Id = 1, Country = "Germany",
                     Cars = new List<Car> { new Car() { Brand = "Audi" }, new Car { Brand = "Volswagen"} }
              },
-                new Company { Name = "Mercedes", Id = 2, Country = "Germany",
+                new Company { Name = "Mercedes", Id = 2, Country = "Afkiaf",
                     Cars = new List<Car> { new Car() { Brand = "Audi" }, new Car { Brand = "Volswagen"} }
                 },
                 new Company { Name = "Alfa Romeo", Id = 3, Country = "Italy",
@@ -377,9 +405,13 @@ namespace Linq
 
     public class CarsComparer : IEqualityComparer<Car>
     {
-        
+
         public bool Equals(Car x, Car y)
         {
+            if (Object.ReferenceEquals(x, y)) return true;
+
+            if (Object.ReferenceEquals(x, null) || Object.ReferenceEquals(y,null)) return false;
+
             return x.Brand == (y.Brand) && x.Model == (y.Model);
         }
 

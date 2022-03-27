@@ -9,5 +9,9 @@ namespace Linq.Repo
     public class EletricCar : Car
     {
         public int Autonomy { get; set; }
+        public override string ToString()
+        {
+            return base.ToString() + $" with autonomy: {Autonomy} km";
+        }
     }
 }
