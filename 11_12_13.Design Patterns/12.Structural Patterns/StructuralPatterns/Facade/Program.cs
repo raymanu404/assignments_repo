@@ -16,7 +16,6 @@ namespace Facade
             var pizza = new Menu() { Id = 2, Category = Categories.FastFood, Title = "Pizza Diavola", Description = "Pizza Diavola with tomatos sauce", Price = 28.99f };
             var soup = new Menu() { Id = 3, Category = Categories.Soup, Title = "Chicken Soup", Description = "Chicken Soup with vegetables", Price = 9.99f };
 
-
             client1.ChooseMenu(menu: burger, amount: 2);
             client1.PayYourMenu();
 
