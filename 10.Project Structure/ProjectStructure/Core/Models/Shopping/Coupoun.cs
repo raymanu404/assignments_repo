@@ -1,11 +1,11 @@
-﻿using Domain.Enums;
+﻿using Enums;
 
 namespace Domain.Models
 {
-    public class Coupouns
+    public class Coupoun
     {
         public int Id { get; set; }
-        public TypeCoupuns Type { get; set; }
+        public TypeCoupons Type { get; set; }
         public DateTime DateCreated { get; set; }
         public string UniqueCode { get; set; } = null!;
         public int UserId { get; set; }

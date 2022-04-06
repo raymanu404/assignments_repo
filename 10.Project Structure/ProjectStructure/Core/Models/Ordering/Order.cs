@@ -1,8 +1,8 @@
-﻿using Domain.Enums;
+﻿using Enums;
 
 namespace Domain.Models
 {
-    public class Orders
+    public class Order
     {
         public int Id { get; set; }
         public int UserId { get; set; }

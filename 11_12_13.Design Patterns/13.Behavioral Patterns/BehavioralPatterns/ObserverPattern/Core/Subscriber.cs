@@ -3,7 +3,7 @@ using BehavioralPatterns.Domain;
 
 namespace ObserverPattern.Core
 {
-    public class Subscriber : ISubscriber<Offer>
+    public class Subscriber : ISubscriber<Offer> //subscriber
     {
         public ClientData ClientData { get; set; }
         public bool HasOffers { get; set; }

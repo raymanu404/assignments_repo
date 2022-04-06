@@ -1,17 +1,19 @@
-﻿namespace Domain.Models
+﻿using Domain.ValueObjects;
+
+namespace Domain.Models
 {
-    public class Users
+    public class Buyer
     {
         public int Id { get; set; }
         public string Email { get; set; } = null!;
         public string Password { get; set; } = null!;
         public string FirstName { get; set; } = null!;
         public string LastName { get; set; } = null!;
-        public string PhoneNumber { get; set; } = null!;
+        public PhoneNumber PhoneNumber { get; set; }
         public char Sex { get; set; }
         public bool Confirmed { get; set; }
-        public float Balance { get; set; }
-        public List<Coupouns> Coupouns { get; set; } = null!;
+        public float Balance { get; set; } = 0;
+        public List<Coupoun> Coupouns { get; set; } = null!;
 
     }
 }

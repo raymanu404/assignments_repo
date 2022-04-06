@@ -1,4 +1,6 @@
-﻿namespace Domain.Models
+﻿using Enums;
+
+namespace Domain.Models
 {
     public class Product
     {

@@ -1,8 +1,8 @@
 ﻿
 
-namespace ObserverPattern.Abstractions
+namespace ObserverPattern.Abstractions 
 {
-    public abstract class Publisher<T>
+    public abstract class Publisher<T> // observeable, el trebuie sa tina o lista de subscriberi
     {
         private List<ISubscriber<T>> _subscribers;
         public Publisher()

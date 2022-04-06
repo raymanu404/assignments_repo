@@ -5,6 +5,5 @@ namespace ObserverPattern.Abstractions
     {
         void Notify(T item);
 
-
     }
 }
