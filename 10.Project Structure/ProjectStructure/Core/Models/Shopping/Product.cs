@@ -14,5 +14,8 @@ namespace Domain.Models
         public DateTime DateUpdated { get; set; }
         public bool HasStock { get; set; }
 
+        public Cart Cart { get; set; }
+        public int CartId { get; set; }
+
     }
 }

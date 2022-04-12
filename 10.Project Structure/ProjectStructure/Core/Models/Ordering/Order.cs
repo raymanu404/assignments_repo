@@ -12,6 +12,6 @@ namespace Domain.Models
         public OrderStatus Status { get; set; }
         public int Discount { get; set; }
         public string Code { get; set; } = null!;
-        public List<OrderItem> Items { get; set; } = null!;
+        public ICollection<OrderItem> Items { get; set; } = null!;
     }
 }

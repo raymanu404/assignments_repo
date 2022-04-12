@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Domain.Models.ShoppingCart
+namespace Domain.Models
 {
     public class Cart
     {
@@ -16,6 +16,6 @@ namespace Domain.Models.ShoppingCart
         public DateTime DatePlaced { get; set; }
         public int Discount { get; set; }
         public string Code { get; set; } = null!;
-        public List<Product> Products { get; set; }
+        public ICollection<Product> Products { get; set; }
     }
 }

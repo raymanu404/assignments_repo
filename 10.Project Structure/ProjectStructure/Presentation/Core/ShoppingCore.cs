@@ -13,7 +13,7 @@ namespace Presentation.Core
 
         public void BuyCoupouns(TypeCoupons type, int amount)
         {
-            _buyer.Coupouns = new List<Coupoun>();
+            _buyer.Coupouns = new List<Coupon>();
             if (_buyer.Confirmed)
             {
                 if(_buyer.Balance > 0)
@@ -36,12 +36,12 @@ namespace Presentation.Core
                     {
                         for (int i = 0; i < amount; i++)
                         {
-                            _buyer.Coupouns.Add(new Coupoun() { 
+                            _buyer.Coupouns.Add(new Coupon() { 
                                 Id = i,
                                 Type = type,
                                 DateCreated = DateTime.Now,
                                 UniqueCode = RandomCode(6),
-                                UserId = _buyer.Id 
+                                
                             });
                         }
 

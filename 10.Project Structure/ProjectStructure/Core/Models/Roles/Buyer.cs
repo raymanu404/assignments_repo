@@ -10,10 +10,11 @@ namespace Domain.Models
         public string FirstName { get; set; } = null!;
         public string LastName { get; set; } = null!;
         public PhoneNumber PhoneNumber { get; set; }
+      
         public char Sex { get; set; }
         public bool Confirmed { get; set; }
         public float Balance { get; set; } = 0;
-        public List<Coupoun> Coupouns { get; set; } = null!;
+        public ICollection<Coupon> Coupouns { get; set; } = new List<Coupon>();
 
     }
 }

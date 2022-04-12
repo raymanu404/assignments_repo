@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
+﻿
 namespace Domain.Models
 {
     public class OrderItem
@@ -14,5 +9,7 @@ namespace Domain.Models
         public string Description { get; set; } = null!;
         public float Price { get; set; }
         public string Image { get; set; } = null!;
+        public Order Order { get; set; }
+        public int OrderId { get; set; }
     }
 }
