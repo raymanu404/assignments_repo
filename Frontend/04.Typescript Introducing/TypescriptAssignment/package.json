@@ -1,0 +1,10 @@
+{
+  "devDependencies": {
+    "@tsconfig/recommended": "^1.0.1",
+    "nodemon": "^2.0.16"
+  },
+  "module": "CommonJS",
+  "scripts": {
+    "start": "nodemon main.ts"
+  }
+}
