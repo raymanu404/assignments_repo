@@ -1,5 +1,6 @@
-// import { Buyer } from '../Domain/Roles/Buyer';
-// import { BuyerRepository } from '../Infrastructure/BuyerRepository';
+"use strict";
+exports.__esModule = true;
+var BuyerRepository_1 = require("../Infrastructure/BuyerRepository");
 var buyers = [
     {
         Email: 'email1@gmail.com',
@@ -30,54 +31,68 @@ var buyers = [
         Password: '1234'
     },
 ];
-var Buyer = /** @class */ (function () {
-    function Buyer() {
-        this.Confirmed = false;
-        this.Balance = 0.0;
-    }
-    return Buyer;
-}());
-var BuyerRepository = /** @class */ (function () {
-    function BuyerRepository() {
-        var _this = this;
-        this.GetBuyers = function () { return _this.Buyers; };
-        this.Buyers = new Array();
-    }
-    BuyerRepository.prototype.createBuyer = function (buyer) {
-        if (buyer) {
-            this.Buyers.push(buyer);
-            console.log("".concat(buyer.FirstName, " welcome in club!"));
-        }
-        else {
-            console.log('Complete all required properties');
-        }
-    };
-    BuyerRepository.prototype.deleteBuyer = function (buyer) {
-        var index = this.Buyers.indexOf(buyer, 0);
-        if (index > -1) {
-            this.Buyers.splice(index, 1);
-            console.log('Buyer was added successfully');
-        }
-        else {
-            console.log("This buyer doesn't exists!");
-        }
-    };
-    BuyerRepository.prototype.loginBuyer = function (Email, Password) {
-        var returnResult = '';
-        this.Buyers.forEach(function (e) {
-            if (e.Email === Email && e.Password === Password) {
-                returnResult = "Hello, ".concat(e.FirstName);
-                return;
-            }
-            else {
-                returnResult = "Email or Password incorrect!";
-            }
-        });
-        return returnResult;
-    };
-    return BuyerRepository;
-}());
-var buyerRepo = new BuyerRepository();
+// interface IBuyer {
+//   Email: string;
+//   Password: string;
+//   FirstName: string;
+//   LastName: string;
+//   PhoneNumber?: string;
+//   Gender?: string;
+//   Confirmed?: boolean;
+//   Balance?: number;
+// }
+// class Buyer implements IBuyer {
+//   Email: string;
+//   Password: string;
+//   FirstName: string;
+//   LastName: string;
+//   PhoneNumber: string;
+//   Gender: string;
+//   Confirmed: boolean = false;
+//   Balance: number = 0.0;
+// }
+// interface IBuyerRepository {
+//   createBuyer(buyer: Buyer): void;
+//   deleteBuyer(buyer: Buyer): void;
+//   loginBuyer(Email: string, Password: string): string;
+// }
+// class BuyerRepository implements IBuyerRepository {
+//   private Buyers: IBuyer[];
+//   constructor() {
+//     this.Buyers = new Array();
+//   }
+//   public readonly GetBuyers = () => this.Buyers;
+//   createBuyer(buyer: IBuyer) {
+//     if (buyer as IBuyer) {
+//       this.Buyers.push(buyer);
+//       console.log(`${buyer.FirstName} welcome in club!`);
+//     } else {
+//       console.log('Complete all required properties');
+//     }
+//   }
+//   deleteBuyer(buyer: Buyer) {
+//     let index: number = this.Buyers.indexOf(buyer, 0);
+//     if (index > -1) {
+//       this.Buyers.splice(index, 1);
+//       console.log('Buyer was added successfully');
+//     } else {
+//       console.log("This buyer doesn't exists!");
+//     }
+//   }
+//   loginBuyer(Email: string, Password: string) {
+//     let returnResult: string = '';
+//     this.Buyers.forEach((e) => {
+//       if (e.Email === Email && e.Password === Password) {
+//         returnResult = `Hello, ${e.FirstName}`;
+//         return;
+//       } else {
+//         returnResult = `Email or Password incorrect!`;
+//       }
+//     });
+//     return returnResult;
+//   }
+// }
+var buyerRepo = new BuyerRepository_1.BuyerRepository();
 buyers.forEach(function (e) {
     buyerRepo.createBuyer(e);
 });
